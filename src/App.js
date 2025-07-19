@@ -66,11 +66,6 @@ function Quiz() {
   const [showAnswer, setShowAnswer] = useState(false);
   const BATCH_SIZE = 5;
 
-  if (!grade || !topic) {
-    navigate('/');
-    return null;
-  }
-
   // 批量加载题目
   const fetchBatch = async () => {
     setLoading(true);
@@ -91,6 +86,19 @@ function Quiz() {
     }
   };
 
+  // 首次进入时如果只有一道题，先预取一批
+  React.useEffect(() => {
+    if (questions.length < BATCH_SIZE) {
+      fetchBatch();
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  if (!grade || !topic) {
+    navigate('/');
+    return null;
+  }
+
   // 上一题逻辑
   const handlePrev = () => {
     if (index > 0) {
@@ -110,14 +118,6 @@ function Quiz() {
       setShowAnswer(false);
     }
   };
-
-  // 首次进入时如果只有一道题，先预取一批
-  React.useEffect(() => {
-    if (questions.length < BATCH_SIZE) {
-      fetchBatch();
-    }
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <div className="App">
