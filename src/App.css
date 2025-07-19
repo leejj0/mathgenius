@@ -381,6 +381,58 @@ h1 {
   margin-bottom: 6px;
 }
 
+.topic-card {
+  display: inline-block;
+  min-width: 120px;
+  padding: 28px 0 18px 0;
+  margin: 0 18px 18px 0;
+  background: #e6f7ff;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px #43c6ac33;
+  font-size: 1.3rem;
+  color: #2d8cf0;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.1s;
+  border: 3px solid transparent;
+  outline: none;
+  user-select: none;
+}
+
+.topic-card:hover,
+.topic-card:focus {
+  box-shadow: 0 4px 20px #2d8cf044;
+  background: #d0f0ff;
+  transform: scale(1.04);
+}
+
+.topic-card.selected {
+  background: linear-gradient(90deg, #43c6ac 0%, #2d8cf0 100%);
+  color: #fff;
+  border: 3px solid #2d8cf0;
+  box-shadow: 0 6px 24px #2d8cf066;
+  transform: scale(1.07);
+}
+
+.option-correct {
+  background: linear-gradient(90deg, #43c6ac 0%, #2d8cf0 100%) !important;
+  color: #fff !important;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #2d8cf066;
+  transition: background 0.2s, color 0.2s;
+}
+
+.question-card li.option-correct {
+  background: linear-gradient(90deg, #43c6ac 0%, #2d8cf0 100%) !important;
+  color: #fff !important;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #2d8cf066;
+  transition: background 0.2s, color 0.2s;
+}
+
 @media (max-width: 600px) {
 
   /* 只隐藏大面积装饰 */
