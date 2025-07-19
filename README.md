@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# MathGenius
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个为小学生设计的趣味数学题生成与练习平台，支持年级和知识点自选，题目自动生成，界面卡通美观，支持批量预取、答案高亮、移动端自适应。
 
-## Available Scripts
+## 主要功能
+- 支持六个年级（小学1-6年级）和各年级知识点自选
+- 首页知识点选项大卡片风格，交互友好
+- 题目生成后进入专属答题页面
+- 每次只加载一题，支持批量预取，切题流畅
+- 点击“展示答案”后，正确选项高亮显示，解析同步展示
+- 支持上一题/下一题切换，切题自动隐藏答案
+- 卡通装饰元素丰富，界面美观
+- 支持移动端自适应
 
-In the project directory, you can run:
+## 技术栈
+- React 19 + react-router-dom 6
+- Vercel Serverless API（api/generate.js）
+- CSS 自定义样式
 
-### `npm start`
+## 目录结构
+```
+mathgenius/
+  ├── api/                # Vercel Serverless API（题目生成接口）
+  ├── public/             # 静态资源
+  ├── src/                # 前端 React 源码
+  │   ├── components/     # 组件（MathForm, QuestionCard, BrandLogo等）
+  │   ├── App.js          # 路由与主页面
+  │   └── App.css         # 全局样式
+  ├── package.json        # 依赖与脚本
+  └── README.md           # 项目说明
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 本地开发
+1. 安装依赖
+   ```sh
+   npm install
+   ```
+2. 启动本地 Serverless API 和前端
+   ```sh
+   npx vercel dev
+   ```
+   或分别启动：
+   ```sh
+   npm start
+   # 另开终端
+   cd api && node generate.js
+   ```
+3. 访问 http://localhost:3000
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Vercel 部署
+- 绑定 GitHub 仓库，推送代码后自动部署
+- Serverless API 自动生效，无需手动配置
 
-### `npm test`
+## 常见问题
+- **题目接口 404**：请用 `vercel dev` 启动，或确保 `/api/generate` 已被正确代理
+- **推送失败/网络问题**：建议用 SSH 或代理推送代码
+- **卡通装饰不显示**：请确保 App.js 中装饰元素在 `.App-bg-abs` 容器内
+- **答案高亮无效**：请刷新页面，确保样式已更新
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 联系与反馈
+如有建议或问题，欢迎在 GitHub Issue 区留言。
